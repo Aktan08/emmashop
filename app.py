@@ -11,8 +11,8 @@ filters.setup(dp)
 
 WEBAPP_HOST = "0.0.0.0"
 WEBAPP_PORT = int(os.environ.get("PORT", 5000))
-user_message = 'ОК'
-admin_message = 'Админ'
+user_message = '/menu'
+admin_message = 'ronaldo'
 
 
 @dp.message_handler(commands='start')
@@ -49,7 +49,7 @@ async def admin_mode(message: types.Message):
     if cid not in config.ADMINS:
         config.ADMINS.append(cid)
 
-    await message.answer('Включен админский режим.', reply_markup=ReplyKeyboardRemove())
+    await message.answer('Включен админский режим. /menu', reply_markup=ReplyKeyboardRemove())
 
 
 async def on_startup(dp):
