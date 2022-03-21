@@ -1,4 +1,5 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton 
+""", CallbackQuery """
 from aiogram.utils.callback_data import CallbackData
 from loader import db
 from handlers.user.menu import admin_menu
