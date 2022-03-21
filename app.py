@@ -11,8 +11,8 @@ filters.setup(dp)
 
 WEBAPP_HOST = "0.0.0.0"
 WEBAPP_PORT = int(os.environ.get("PORT", 5000))
-user_message = '/menu'
-admin_message = 'продолжить'
+user_message = 'продолжить'
+admin_message = 'ronaldo'
 
 
 @dp.message_handler(commands='start')
