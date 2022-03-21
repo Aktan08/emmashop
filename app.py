@@ -39,7 +39,7 @@ async def user_mode(message: types.Message):
     if cid in config.ADMINS:
         config.ADMINS.remove(cid)
 
-    await message.answer('', reply_markup=ReplyKeyboardRemove())
+    await message.answer('/menu', reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler(text=admin_message)
