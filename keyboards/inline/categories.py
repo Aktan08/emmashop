@@ -13,5 +13,5 @@ def categories_markup():
     for idx, title in db.fetchall('SELECT * FROM categories'):
         markup.add(InlineKeyboardButton(title, callback_data=category_cb.new(id=idx, action='view')))
     markup.add(InlineKeyboardButton("🛒 Корзина"))
-    markup.add(InlineKeyboardButton("назад",callback_data= '\menu'))
+    # markup.add(InlineKeyboardButton("назад",callback_data= '\menu'))
     return markup
