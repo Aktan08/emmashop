@@ -2,9 +2,10 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 """, CallbackQuery """
 from aiogram.utils.callback_data import CallbackData
 from loader import db
-from handlers.user.menu import admin_menu
-from loader import dp, db
+# from handlers.user.menu import admin_menu
+# from loader import dp, db
 category_cb = CallbackData('category', 'id', 'action')
+
 def categories_markup():
 
     global category_cb
