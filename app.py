@@ -12,7 +12,7 @@ filters.setup(dp)
 WEBAPP_HOST = "0.0.0.0"
 WEBAPP_PORT = int(os.environ.get("PORT", 5000))
 user_message = '/menu'
-admin_message = 'ronaldo'
+admin_message = 'продолжить'
 
 
 @dp.message_handler(commands='start')
@@ -39,7 +39,7 @@ async def user_mode(message: types.Message):
     if cid in config.ADMINS:
         config.ADMINS.remove(cid)
 
-    await message.answer('/menu', reply_markup=ReplyKeyboardRemove())
+    await message.answer('продолжить', reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler(text=admin_message)
