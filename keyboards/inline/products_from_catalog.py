@@ -13,5 +13,5 @@ def product_markup(idx='', price=0):
 
     markup = InlineKeyboardMarkup()
     markup.add(InlineKeyboardButton(f'Добавить в корзину - {price}₽', callback_data=product_cb.new(id=idx, action='add')))
-    markup.add(InlineKeyboardButton('<< Назад', callback_data="Catalog"))
+    markup.add(InlineKeyboardButton('<< Назад', callback_data="catalog"))
     return markup
