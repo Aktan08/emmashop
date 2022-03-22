@@ -13,8 +13,7 @@ from keyboards.default.markups import *
 @dp.message_handler(IsUser(), text=catalog)
 async def process_catalog(message: Message):
     await message.answer('Выберите раздел, чтобы вывести список товаров:',
-                         reply_markup=categories_markup(),
-                        reply_markup=back_markup())
+                         reply_markup=categories_markup())
 
 @dp.callback_query_handler(IsUser(), category_cb.filter(action='view'))
 async def category_callback_handler(query: CallbackQuery, callback_data: dict):
