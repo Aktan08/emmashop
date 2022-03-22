@@ -3,7 +3,7 @@ from aiogram.utils.callback_data import CallbackData
 from setuptools import Command
 from keyboards.default.markups import back_markup
 from loader import db,dp
-from handlers.user.catalog import process_catalog
+# from handlers.user.catalog import process_catalog
 product_cb = CallbackData('product', 'id', 'action')
 
 
