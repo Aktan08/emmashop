@@ -35,7 +35,7 @@ async def add_product_callback_handler(query: CallbackQuery, callback_data: dict
              (query.message.chat.id, callback_data['id']))
 
     await query.answer('Товар добавлен в корзину!')
-    await query.message.delete()
+    # await query.message.delete()
 
 
 async def show_products(m, products):
