@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton 
 """, CallbackQuery """
 from aiogram.utils.callback_data import CallbackData
-from loader import db
+from loader import db, dp
 # from handlers.user.menu import admin_menu
 # from loader import dp, db
 category_cb = CallbackData('category', 'id', 'action')
@@ -13,7 +13,7 @@ def categories_markup():
     markup = InlineKeyboardMarkup()
     for idx, title in db.fetchall('SELECT * FROM categories'):
         markup.add(InlineKeyboardButton(title, callback_data=category_cb.new(id=idx, action='view')))
-    # markup.add(InlineKeyboardButton('<< Назад', callback_data=category_cb.new(id='-', action='list')))
+        markup.add(InlineKeyboardButton('<< Назад', callback_data=category_cb.new(id='-', action='list')))
     return markup
 
 
