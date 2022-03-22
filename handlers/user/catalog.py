@@ -1,6 +1,6 @@
 
 import logging
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery,  ReplyKeyboardMarkup
 from keyboards.inline.categories import categories_markup, category_cb
 from keyboards.inline.products_from_catalog import product_markup, product_cb
 from aiogram.utils.callback_data import CallbackData
@@ -8,13 +8,13 @@ from aiogram.types.chat import ChatActions
 from loader import dp, db, bot
 from .menu import catalog
 from filters import IsUser
-
+from keyboards.default.markups import *
 
 @dp.message_handler(IsUser(), text=catalog)
 async def process_catalog(message: Message):
     await message.answer('Выберите раздел, чтобы вывести список товаров:',
-                         reply_markup=categories_markup())
-
+                         reply_markup=categories_markup(),
+                        reply_markup=back_markup())
 
 @dp.callback_query_handler(IsUser(), category_cb.filter(action='view'))
 async def category_callback_handler(query: CallbackQuery, callback_data: dict):
@@ -32,8 +32,6 @@ async def category_callback_handler(query: CallbackQuery, callback_data: dict):
 async def add_product_callback_handler(query: CallbackQuery, callback_data: dict):
 
     db.query('INSERT INTO cart VALUES (?, ?, 1)',
-             (query.message.chat.id, callback_data['id']))
-    db.query('INSERT INTO products VALUES (?, ?, ?, ?, ?, ?)',
              (query.message.chat.id, callback_data['id']))
     await query.answer('Товар добавлен в корзину!')
     await query.message.delete()
