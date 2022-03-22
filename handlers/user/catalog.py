@@ -33,9 +33,10 @@ async def add_product_callback_handler(query: CallbackQuery, callback_data: dict
 
     db.query('INSERT INTO cart VALUES (?, ?, 1)',
              (query.message.chat.id, callback_data['id']))
-
+    db.query('INSERT INTO products VALUES (?, ?, ?, ?, ?, ?)',
+             (query.message.chat.id, callback_data['id']))
     await query.answer('Товар добавлен в корзину!')
-    # await query.message.delete()
+    await query.message.delete()
 
 
 async def show_products(m, products):

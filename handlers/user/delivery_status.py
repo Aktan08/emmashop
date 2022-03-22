@@ -17,7 +17,7 @@ async def delivery_status_answer(message, orders):
 
     for order in orders:
 
-        res += f'Заказ <b>№{order[1],order[2]}</b>'
+        res += f'Заказ <b>№{order[1],order[2],order[3],}</b>'
         answer = [
             ' лежит на складе.',
             ' уже в пути!',
